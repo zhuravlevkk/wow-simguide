@@ -1,0 +1,212 @@
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --border-radius: 8px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s ease-in-out;
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #868e96;
+  --border-color: #dee2e6;
+  --accent-color: #007bff;
+  --accent-hover: #0056b3;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --error-color: #dc3545;
+  --wow-gold: #ffb347;
+  --wow-blue: #0070dd;
+  --wow-purple: #a335ee;
+  --wow-orange: #ff8000;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-muted: #656d76;
+  --border-color: #30363d;
+  --accent-color: #58a6ff;
+  --accent-hover: #388bfd;
+  --success-color: #238636;
+  --warning-color: #d29922;
+  --error-color: #f85149;
+  --wow-gold: #ffb347;
+  --wow-blue: #0070dd;
+  --wow-purple: #a335ee;
+  --wow-orange: #ff8000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: var(--transition);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+  color: white;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.highlight {
+  background-color: var(--wow-gold);
+  color: #000;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.code-snippet {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.warning {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-left: 4px solid var(--warning-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.error {
+  background-color: rgba(220, 53, 69, 0.1);
+  border-left: 4px solid var(--error-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.success {
+  background-color: rgba(40, 167, 69, 0.1);
+  border-left: 4px solid var(--success-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .section {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+}
