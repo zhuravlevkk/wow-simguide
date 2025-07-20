@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wow-simguide/static/css/main.0cbeb9a1.css",
+    "main.js": "/wow-simguide/static/js/main.714bbbc5.js",
+    "index.html": "/wow-simguide/index.html",
+    "main.0cbeb9a1.css.map": "/wow-simguide/static/css/main.0cbeb9a1.css.map",
+    "main.714bbbc5.js.map": "/wow-simguide/static/js/main.714bbbc5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0cbeb9a1.css",
+    "static/js/main.714bbbc5.js"
+  ]
+}
