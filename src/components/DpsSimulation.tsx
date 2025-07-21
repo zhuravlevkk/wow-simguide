@@ -43,7 +43,7 @@ const DpsSimulation: React.FC = () => {
             title="Команда /simc в игре"
             description="Скриншот показывающий выполнение команды /simc в чате WoW"
             size="medium"
-            imageSrc="/images/simc.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/simc.jpeg`}
           />
         </div>
       )
@@ -73,7 +73,7 @@ const DpsSimulation: React.FC = () => {
             title="Raidbots Droptimizer - загрузка данных"
             description="Поле Load from simc addon на сайте Raidbots"
             size="large"
-            imageSrc="/images/droptimizer.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/droptimizer.jpeg`}
           />
         </div>
       )
@@ -100,7 +100,7 @@ const DpsSimulation: React.FC = () => {
             title="Настройка Sources в Raidbots"
             description="Выбор рейда и сложности"
             size="medium"
-            imageSrc="/images/sources.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/sources.jpeg`}
           />
         </div>
       )
@@ -155,7 +155,7 @@ const DpsSimulation: React.FC = () => {
             title="Items to sim настройки"
             description="Настройка максимального уровня предметов и камней"
             size="medium"
-            imageSrc="/images/items-to-sim.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/items-to-sim.jpeg`}
           />
         </div>
       )
@@ -195,7 +195,7 @@ const DpsSimulation: React.FC = () => {
             title="Simulation Options в Raidbots"
             description="Настройки симуляции: Fight Style, Number of Bosses, Fight Length, SimC Version"
             size="large"
-            imageSrc="/images/simulation-options.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/simulation-options.jpeg`}
           />
         </div>
       )
@@ -233,7 +233,7 @@ const DpsSimulation: React.FC = () => {
             title="Кнопка RUN DROPTIMIZER"
             description="Кнопка запуска симуляции с галочкой High Precision"
             size="small"
-            imageSrc="/images/run-droptimizer.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/run-droptimizer.jpeg`}
           />
         </div>
       )
@@ -263,7 +263,7 @@ const DpsSimulation: React.FC = () => {
             title="Процесс выполнения симуляции"
             description="Экран ожидания с прогрессом выполнения симуляции"
             size="medium"
-            imageSrc="/images/waiting.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/waiting.jpeg`}
           />
         </div>
       )
@@ -284,7 +284,7 @@ const DpsSimulation: React.FC = () => {
             title="Готовые результаты Droptimizer"
             description="Страница с завершенной симуляцией и результатами"
             size="large"
-            imageSrc="/images/droptimizer-results.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/droptimizer-results.jpeg`}
           />
         </div>
       )

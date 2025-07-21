@@ -43,7 +43,7 @@ const HealerSimulation: React.FC = () => {
             title="Команда /simc в игре"
             description="Скриншот показывающий выполнение команды /simc в чате WoW"
             size="medium"
-            imageSrc="/images/simc.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/simc.jpeg`}
           />
         </div>
       )
@@ -81,7 +81,7 @@ const HealerSimulation: React.FC = () => {
             title="Выбор спека хила на QuestionablyEpic"
             description="Скриншот со списком доступных спеков хилеров"
             size="medium"
-            imageSrc="/images/questionablyepic.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/questionablyepic.jpeg`}
           />
         </div>
       )
@@ -129,7 +129,7 @@ const HealerSimulation: React.FC = () => {
               title="Вставка данных SimC"
               description="Поле для вставки данных из аддона SimulationCraft"
               size="large"
-              imageSrc="/images/import-gear.jpeg"
+              imageSrc={`${process.env.PUBLIC_URL}/images/import-gear.jpeg`}
             />
           </div>
         </div>
@@ -157,7 +157,7 @@ const HealerSimulation: React.FC = () => {
             title="Настройки auto-add Sockets"
             description="Скриншот настроек с включенной опцией auto-add Sockets"
             size="medium"
-            imageSrc="/images/auto-add-sockets.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/auto-add-sockets.jpeg`}
           />
         </div>
       )
@@ -183,7 +183,7 @@ const HealerSimulation: React.FC = () => {
             title="Выбор сложности рейда"
             description="Скриншот с кнопками выбора сложности (Heroic/Mythic)"
             size="medium"
-            imageSrc="/images/heroic-mythic.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/heroic-mythic.jpeg`}
           />
         </div>
       )
@@ -203,7 +203,7 @@ const HealerSimulation: React.FC = () => {
             title="Результаты симуляции хила"
             description="Пример готовых результатов симуляции с улучшениями для хилера"
             size="large"
-            imageSrc="/images/healer-results.jpeg"
+            imageSrc={`${process.env.PUBLIC_URL}/images/healer-results.jpeg`}
           />
         </div>
       )
