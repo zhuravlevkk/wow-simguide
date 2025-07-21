@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
-import Navigation from './components/Navigation';
 import Introduction from './components/Introduction';
 import RoleSelector, { Role } from './components/RoleSelector';
 import HealerSimulation from './components/HealerSimulation';
@@ -14,7 +13,6 @@ const App: React.FC = () => {
   return (
     <ThemeProvider>
       <div className="App">
-        <Navigation />
         <Header />
         <main>
           <div data-section="introduction">
