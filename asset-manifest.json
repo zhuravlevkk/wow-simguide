@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/wow-simguide/static/css/main.0cbeb9a1.css",
-    "main.js": "/wow-simguide/static/js/main.e731da7b.js",
+    "main.js": "/wow-simguide/static/js/main.ae5aab2a.js",
     "index.html": "/wow-simguide/index.html",
     "main.0cbeb9a1.css.map": "/wow-simguide/static/css/main.0cbeb9a1.css.map",
-    "main.e731da7b.js.map": "/wow-simguide/static/js/main.e731da7b.js.map"
+    "main.ae5aab2a.js.map": "/wow-simguide/static/js/main.ae5aab2a.js.map"
   },
   "entrypoints": [
     "static/css/main.0cbeb9a1.css",
-    "static/js/main.e731da7b.js"
+    "static/js/main.ae5aab2a.js"
   ]
 }
