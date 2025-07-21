@@ -1,0 +1,34 @@
+# Jekyll configuration for GitHub Pages
+title: WoW SimGuide
+description: World of Warcraft Simulation Guide
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Include public directory files
+include:
+  - public
+
+# Exclude unnecessary files
+exclude:
+  - node_modules
+  - package*.json
+  - tsconfig.json
+  - src
+  - build
+  - .git
+  - .gitignore
+  - README.md
+
+# Static files handling
+defaults:
+  - scope:
+      path: "public/images"
+    values:
+      image: true
+
+# Plugins
+plugins:
+  - jekyll-github-metadata
+  - jekyll-seo-tag
