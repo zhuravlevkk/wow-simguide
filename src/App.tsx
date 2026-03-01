@@ -2,67 +2,75 @@ import React, { useState } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Introduction from './components/Introduction';
-import RoleSelector, { Role } from './components/RoleSelector';
+import { Role } from './components/RoleSelector';
 import HealerSimulation from './components/HealerSimulation';
 import DpsSimulation from './components/DpsSimulation';
 import './styles/globals.css';
 
+type Screen = 'intro' | 'wizard';
+
 const App: React.FC = () => {
   const [selectedRole, setSelectedRole] = useState<Role>('healer');
+  const [screen, setScreen] = useState<Screen>('intro');
+
+  const handleStart = (role: Role) => {
+    setSelectedRole(role);
+    setScreen('wizard');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleRoleChange = (role: Role) => {
+    setSelectedRole(role);
+  };
+
+  const handleBack = () => {
+    setScreen('intro');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <ThemeProvider>
       <div className="App">
-        <Header />
+        {screen === 'wizard' && (
+          <Header
+            selectedRole={selectedRole}
+            onRoleChange={handleRoleChange}
+          />
+        )}
+
         <main>
-          <div data-section="introduction">
-            <Introduction />
-          </div>
-          
-          <div data-section="role-selector">
-            <RoleSelector 
-              selectedRole={selectedRole}
-              onRoleChange={setSelectedRole}
-            />
-          </div>
-
-          {selectedRole === 'healer' && (
-            <div data-section="healer">
-              <HealerSimulation />
-            </div>
+          {screen === 'intro' && (
+            <Introduction onStart={handleStart} />
           )}
 
-          {selectedRole === 'dps' && (
-            <div data-section="dps">
-              <DpsSimulation />
+          {screen === 'wizard' && (
+            <div className="container" style={{ paddingTop: '0.5rem', paddingBottom: '2rem' }}>
+              {/* Back to intro */}
+              <button
+                onClick={handleBack}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.3rem',
+                  background: 'none',
+                  border: 'none',
+                  color: 'var(--text-muted)',
+                  cursor: 'pointer',
+                  fontSize: '0.8rem',
+                  fontFamily: 'var(--font-family)',
+                  fontWeight: 500,
+                  padding: '0.5rem 0',
+                  transition: 'var(--transition-fast)',
+                }}
+              >
+                &larr; На главную
+              </button>
+
+              {selectedRole === 'healer' && <HealerSimulation />}
+              {selectedRole === 'dps' && <DpsSimulation />}
             </div>
           )}
-
-          {/* <div data-section="bonus">
-            <BonusSection />
-          </div> */}
         </main>
-        <footer style={{
-          backgroundColor: 'var(--bg-secondary)',
-          borderTop: '1px solid var(--border-color)',
-          padding: '2rem 0',
-          marginTop: '3rem',
-          textAlign: 'center',
-          color: 'var(--text-secondary)'
-        }}>
-          <div className="container">
-            <p style={{ marginBottom: '1rem' }}>
-              Создано <strong style={{ color: 'var(--wow-gold)' }}>Кайдору</strong> для 
-              гильдии <strong style={{ color: 'var(--wow-purple)' }}>Юные Негодяи</strong>
-            </p>
-            <p style={{ fontSize: '0.9rem' }}>
-              Веб-версия разработана <strong style={{ color: 'var(--accent-color)' }}>Касвием</strong>
-            </p>
-            <p style={{ fontSize: '0.8rem', marginTop: '1rem' }}>
-              © {new Date().getFullYear()} World of Warcraft Simulation Guide
-            </p>
-          </div>
-        </footer>
       </div>
     </ThemeProvider>
   );
