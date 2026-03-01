@@ -1,81 +1,116 @@
 import React from 'react';
-import { Sun, Moon, ExternalLink } from 'lucide-react';
+import { Sun, Moon, Heart, Sword, Shield } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import { Role } from './RoleSelector';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  selectedRole: Role;
+  onRoleChange: (role: Role) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ selectedRole, onRoleChange }) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="section">
-      <div className="container">
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '1rem'
+    <header style={{
+      backgroundColor: 'var(--bg-secondary)',
+      borderBottom: '1px solid var(--border-color)',
+      position: 'sticky',
+      top: 0,
+      zIndex: 100,
+      backdropFilter: 'blur(12px)',
+    }}>
+      <div className="container" style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: '56px',
+      }}>
+        {/* Logo */}
+        <span style={{
+          fontWeight: 800,
+          fontSize: '1.05rem',
+          color: 'var(--color-primary)',
+          letterSpacing: '-0.01em',
+          whiteSpace: 'nowrap',
         }}>
-          <div>
-            <h1 style={{ 
-              fontSize: '2.5rem', 
-              fontWeight: 'bold', 
-              marginBottom: '0.5rem',
-              color: 'var(--wow-gold)'
-            }}>
-              Симимся для рейда вместе с Кайдору
-            </h1>
-            <p style={{ 
-              fontSize: '1.1rem', 
-              color: 'var(--text-secondary)',
-              marginBottom: '1rem'
-            }}>
-              Полное руководство по симуляции персонажей для статик рейда
-            </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <a 
-                href="https://worldofwarcraft.blizzard.com/ru-ru/character/eu/howling-fjord/%D0%BA%D0%B0%D0%B9%D0%B4%D0%BE%D1%80%D1%83/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn"
-                style={{ backgroundColor: 'var(--wow-orange)' }}
-              >
-                <ExternalLink size={16} />
-                Кайдору (Автор)
-              </a>
-              <a 
-                href="https://worldofwarcraft.blizzard.com/ru-ru/character/eu/silvermoon/kasvius/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-              >
-                <ExternalLink size={16} />
-                Касвий (Разработчик сайта)
-              </a>
-              <a 
-                href="https://discord.gg/XKfhvTBQc6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn"
-                style={{ backgroundColor: 'var(--wow-purple)' }}
-              >
-                <ExternalLink size={16} />
-                Discord "Юные Негодяи"
-              </a>
-            </div>
-          </div>
-          <button 
-            onClick={toggleTheme}
-            className="btn btn-secondary"
-            style={{ 
-              minWidth: '120px',
-              alignSelf: 'flex-start'
+          SimGuide
+        </span>
+
+        {/* Role toggle */}
+        <div style={{
+          display: 'flex',
+          backgroundColor: 'var(--bg-tertiary)',
+          borderRadius: 'var(--border-radius-full)',
+          padding: '3px',
+          gap: '2px',
+        }}>
+          <button
+            onClick={() => onRoleChange('healer')}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              padding: '0.3rem 0.85rem',
+              borderRadius: 'var(--border-radius-full)',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '0.8rem',
+              fontWeight: 600,
+              fontFamily: 'var(--font-family)',
+              transition: 'var(--transition-fast)',
+              backgroundColor: selectedRole === 'healer' ? 'var(--color-success)' : 'transparent',
+              color: selectedRole === 'healer' ? '#fff' : 'var(--text-secondary)',
             }}
-            aria-label="Переключить тему"
           >
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            {theme === 'light' ? 'Темная тема' : 'Светлая тема'}
+            <Heart size={14} />
+            Хилер
+          </button>
+          <button
+            onClick={() => onRoleChange('dps')}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              padding: '0.3rem 0.85rem',
+              borderRadius: 'var(--border-radius-full)',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '0.8rem',
+              fontWeight: 600,
+              fontFamily: 'var(--font-family)',
+              transition: 'var(--transition-fast)',
+              backgroundColor: selectedRole === 'dps' ? 'var(--color-danger)' : 'transparent',
+              color: selectedRole === 'dps' ? '#fff' : 'var(--text-secondary)',
+            }}
+          >
+            <Sword size={13} />
+            <Shield size={13} />
+            ДД/Танк
           </button>
         </div>
+
+        {/* Theme toggle */}
+        <button
+          onClick={toggleTheme}
+          aria-label="Переключить тему"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '36px',
+            height: '36px',
+            borderRadius: 'var(--border-radius-full)',
+            border: '1px solid var(--border-color)',
+            backgroundColor: 'var(--bg-tertiary)',
+            color: 'var(--text-secondary)',
+            cursor: 'pointer',
+            transition: 'var(--transition-fast)',
+            padding: 0,
+          }}
+        >
+          {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+        </button>
       </div>
     </header>
   );
